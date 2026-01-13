@@ -77,11 +77,10 @@
             font-weight: 300;
         }
         
-        /* 新增：價值主張樣式 */
         .profile-text .value-prop {
             font-size: 1.15em;
             margin-bottom: 25px;
-            color: #a8c0ff; /* 淡藍色強調 */
+            color: #a8c0ff;
             font-weight: 500;
             max-width: 700px;
             margin-left: auto;
@@ -250,14 +249,13 @@
             margin-bottom: 10px;
         }
         
-        /* 新增：專案列表樣式 */
         .project-list {
              margin-top: 15px; 
              padding-left: 20px; 
              color: #555;
         }
         .project-list li {
-            margin-bottom: 8px;
+            margin-bottom: 12px; /* 增加一點行距，讓閱讀更舒適 */
         }
         .project-list strong {
             color: #2a5298;
@@ -471,19 +469,16 @@
             <h2><span class="section-number">03</span>策略藍圖與解決方案 Strategic Solutions</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <span class="project-tag">GenAI 全端開發</span>
+                    <span class="project-tag">企業級架構</span>
                     <span class="project-tag">商業邏輯實踐</span>
-                    <h3>【商業級 AI Agent】智能旅遊商務開發架構</h3>
-                    <p><strong>Commercial AI Agent Architecture</strong></p>
-                    <p>從 Prompt Engineering 到 Production Ready。這不只是一個 Demo App，而是解決了真實商業環境中「流量限制 (429)」、「成本控管」與「資料容錯」的完整實戰架構。</p>
+                    <h3>【企業級 AI 解決方案】智能商務差旅系統架構</h3>
+                    <p><strong>Enterprise AI Agent Architecture</strong></p>
+                    <p>解決企業導入 GenAI 時最擔心的三大風險：成本失控、資料幻覺、系統不穩。本專案展示如何打造「可落地、可規模化」的商業級 AI 應用。</p>
                     <ul class="project-list">
-                        <li><strong>💰 預算防護網 (Budget Safety Net)：</strong>實作 GCP 成本監控與 Exponential Backoff 指數退避機制，將 API 成本鎖定在可控範圍。</li>
-                        <li><strong>📸 前端智能壓縮引擎：</strong>透過 Canvas API 在瀏覽器端預處理圖片，減少 90% Token 消耗，解決高畫質收據上傳失敗痛點。</li>
-                        <li><strong>🛡️ 邏輯精準錨定：</strong>建立「匯率與地圖」的 Prompt 邏輯鎖，消除 AI 幻覺，確保財務數據準確與跨國地圖 (Naver/Google) 自動切換。</li>
+                        <li><strong>💰 成本控管與風控機制 (Cost Control)：</strong>實作「動態預算防護網」，在流量高峰期自動調節 API 請求頻率，確保企業在擴大規模 (Scale up) 時，營運成本依然可控，杜絕天價帳單風險。</li>
+                        <li><strong>⚡ 邊緣運算與體驗優化 (Edge Computing)：</strong>將 90% 的資料處理轉移至使用者端 (Client-side) 執行。大幅降低伺服器運算成本，解決高畫質影像上傳延遲，實現「秒級」的流暢體驗。</li>
+                        <li><strong>🎯 金融級邏輯精準度 (Accuracy)：</strong>針對 GenAI 常見的「幻覺」問題，建立多層邏輯鎖 (Logic Anchoring)。特別在處理跨國匯率與財務數據時，確保輸出的絕對準確性，符合商業應用標準。</li>
                     </ul>
-                    <div style="margin-top: 15px;">
-                         <a href="https://smart-journey-helper.vercel.app/" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold; font-size: 0.9em; border-bottom: 1px dashed #667eea;">👉 View Live Project</a>
-                    </div>
                 </div>
 
                 <div class="project-card">
