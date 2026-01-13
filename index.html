@@ -249,6 +249,19 @@
             line-height: 1.8;
             margin-bottom: 10px;
         }
+        
+        /* 新增：專案列表樣式 */
+        .project-list {
+             margin-top: 15px; 
+             padding-left: 20px; 
+             color: #555;
+        }
+        .project-list li {
+            margin-bottom: 8px;
+        }
+        .project-list strong {
+            color: #2a5298;
+        }
 
         .philosophy-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -457,6 +470,22 @@
         <div class="section">
             <h2><span class="section-number">03</span>策略藍圖與解決方案 Strategic Solutions</h2>
             <div class="project-grid">
+                <div class="project-card">
+                    <span class="project-tag">GenAI 全端開發</span>
+                    <span class="project-tag">商業邏輯實踐</span>
+                    <h3>【商業級 AI Agent】智能旅遊商務開發架構</h3>
+                    <p><strong>Commercial AI Agent Architecture</strong></p>
+                    <p>從 Prompt Engineering 到 Production Ready。這不只是一個 Demo App，而是解決了真實商業環境中「流量限制 (429)」、「成本控管」與「資料容錯」的完整實戰架構。</p>
+                    <ul class="project-list">
+                        <li><strong>💰 預算防護網 (Budget Safety Net)：</strong>實作 GCP 成本監控與 Exponential Backoff 指數退避機制，將 API 成本鎖定在可控範圍。</li>
+                        <li><strong>📸 前端智能壓縮引擎：</strong>透過 Canvas API 在瀏覽器端預處理圖片，減少 90% Token 消耗，解決高畫質收據上傳失敗痛點。</li>
+                        <li><strong>🛡️ 邏輯精準錨定：</strong>建立「匯率與地圖」的 Prompt 邏輯鎖，消除 AI 幻覺，確保財務數據準確與跨國地圖 (Naver/Google) 自動切換。</li>
+                    </ul>
+                    <div style="margin-top: 15px;">
+                         <a href="https://phyllis-kuo.vercel.app/" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold; font-size: 0.9em; border-bottom: 1px dashed #667eea;">👉 View Live Project</a>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <span class="project-tag">GenAI 應用</span>
                     <span class="project-tag">資訊策展</span>
