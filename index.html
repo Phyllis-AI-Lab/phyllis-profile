@@ -1013,7 +1013,7 @@
           選擇最適合你目前狀況的方式開始。不確定從哪裡切入？直接寫信說說你的情況，我來建議。
         </p>
         <div class="contact-options">
-          <a href="/cdn-cgi/l/email-protection#3f4f57465353564c114c4b4d5e4b5a58467f58525e5653115c5052004c4a5d555a5c4b02d79785d9a988da889adb82a3daa2b5d79491d7969d" class="contact-option">
+          <a href="#contact" class="contact-option">
             <span class="contact-option-icon">◈</span>
             <div>
               <h4>AI 決策架構診斷工作坊</h4>
@@ -1021,7 +1021,7 @@
               <p class="price">洽詢報價</p>
             </div>
           </a>
-          <a href="/cdn-cgi/l/email-protection#5d2d35243131342e732e292f3c29383a241d3a303c3431733e3230622e283f37383e2960b9e1dcbbf8f0bbc3ebbbfad6b8d8fab5f5ceb5f6f3b5f4ff" class="contact-option">
+          <a href="#contact" class="contact-option">
             <span class="contact-option-icon">◈</span>
             <div>
               <h4>企業 AI 架構思維內訓</h4>
@@ -1029,7 +1029,7 @@
               <p class="price">NT$ 20,000 起</p>
             </div>
           </a>
-          <a href="/cdn-cgi/l/email-protection#f5859d8c99999c86db868187948190928cb59298949c99db969a98ca8680979f909681c813444f12586312464e1240441c6c5f1d42641d5e5b1d5c57" class="contact-option">
+          <a href="#contact" class="contact-option">
             <span class="contact-option-icon">◈</span>
             <div>
               <h4>決策系統架構陪跑</h4>
@@ -1063,13 +1063,15 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll animation
+    document.body.classList.add('js-loaded');
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
         if (el.isIntersecting) {
           el.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
