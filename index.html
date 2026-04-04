@@ -1093,18 +1093,22 @@
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Inject email addresses via JS to avoid CDN obfuscation
+    // Build email via char codes - bypass CDN email scanning
     (function() {
-      const e = 'phyllis.strategy' + '@' + 'gmail.com';
-      const els = document.querySelectorAll('[data-email]');
-      els.forEach(el => {
-        el.href = 'mailto:' + e;
-        el.textContent = e;
-      });
-      const footer = document.getElementById('footer-email');
-      if (footer) footer.textContent = e;
-      // Form handlers use this too
+      const c = String.fromCharCode;
+      const u = c(112,104,121,108,108,105,115,46,115,116,114,97,116,101,103,121);
+      const d = c(103,109,97,105,108,46,99,111,109);
+      const e = u + c(64) + d;
       window._email = e;
+      const footer = document.getElementById('footer-email');
+      if (footer) {
+        const a = document.createElement('a');
+        a.href = 'mailto:' + e;
+        a.textContent = e;
+        a.style.color = 'rgba(255,255,255,0.5)';
+        a.style.textDecoration = 'none';
+        footer.replaceWith(a);
+      }
     })();
 
     // Form handlers
