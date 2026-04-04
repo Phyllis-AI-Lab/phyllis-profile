@@ -578,12 +578,27 @@
       object-fit: cover; object-position: top center;
     }
 
+    .hero-mobile-creds {
+      display: none;
+      margin-top: 32px;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mobile-cred-item {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      padding-left: 14px;
+      border-left: 2px solid var(--gold);
+      line-height: 1.5;
+    }
+
     @media (max-width: 1024px) {
       nav { padding: 14px 20px; }
       .hero { grid-template-columns: 1fr; padding: 76px 22px 40px; min-height: unset; }
       .hero::before { display: none !important; width: 0 !important; }
       .hero-left { padding-right: 0; }
       .hero-right { display: none; }
+      .hero-mobile-creds { display: flex; margin-top: 24px; }
       .hero-mobile-photo { display: block; margin-bottom: 20px; }
       .hero-eyebrow { margin-bottom: 14px; }
       .hero-h1 { margin-bottom: 16px; }
@@ -663,6 +678,11 @@
       <a href="#services" class="hero-cta">
         了解服務模式 <span class="arrow">→</span>
       </a>
+      <div class="hero-mobile-creds">
+        <div class="mobile-cred-item">媒體總編輯 · 政府城市行銷處長 · 科技公司協理</div>
+        <div class="mobile-cred-item">跨域策略實踐者 · 企業AI系統導入</div>
+        <div class="mobile-cred-item">自建多套AI決策自動化系統並實戰驗證</div>
+      </div>
     </div>
     <div class="hero-right">
       <div class="hero-photo-wrap">
