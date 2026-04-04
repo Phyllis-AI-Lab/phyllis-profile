@@ -625,11 +625,11 @@
     /* ─── RESPONSIVE ─── */
     .hero-mobile-photo {
       display: none;
-      width: 140px; height: 140px;
+      width: 200px; height: 200px;
       border-radius: 50%;
       overflow: hidden;
       border: 3px solid var(--gold);
-      margin: 0 auto 32px;
+      margin: 0 auto 28px;
       flex-shrink: 0;
     }
     .hero-mobile-photo img {
@@ -639,7 +639,7 @@
 
     @media (max-width: 1024px) {
       nav { padding: 14px 20px; }
-      .hero { grid-template-columns: 1fr; padding: 86px 24px 36px; }
+      .hero { grid-template-columns: 1fr; padding: 76px 22px 40px; min-height: unset; }
       .hero::before { display: none !important; width: 0 !important; }
       .hero-left { padding-right: 0; }
       .hero-right { display: none; }
@@ -649,14 +649,25 @@
       .hero-desc { margin-bottom: 24px; font-size: 0.95rem; }
       .principle-band { padding: 32px 24px; }
       .principle-band blockquote { font-size: 1.1rem; }
-      section { padding: 44px 24px; }
-      .section-title { margin-bottom: 12px; font-size: clamp(1.7rem, 6vw, 2.4rem); }
-      .section-subtitle { margin-bottom: 28px; font-size: 1rem; line-height: 1.75; }
-      body { font-size: 16px; }
-      .intro-text, .about-text p { font-size: 1rem !important; line-height: 1.9; }
-      .why-item p, .service-desc, .case-desc, .contact-option p { font-size: 0.95rem; line-height: 1.8; }
-      .hero-h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
-      .hero-desc { font-size: 1rem; }
+      body { font-size: 17px; }
+      section { padding: 44px 22px; }
+      .section-label { font-size: 0.78rem; margin-bottom: 10px; }
+      .section-title { margin-bottom: 14px; font-size: clamp(1.9rem, 7vw, 2.6rem); line-height: 1.15; }
+      .section-subtitle { margin-bottom: 28px; font-size: 1.05rem; line-height: 1.8; color: var(--ink-soft); }
+      .intro-text, .about-text p { font-size: 1.05rem !important; line-height: 1.9; }
+      .why-item h3 { font-size: 1.1rem; }
+      .why-item p { font-size: 1rem; line-height: 1.85; }
+      .service-title { font-size: 1.2rem; }
+      .service-desc { font-size: 1rem; line-height: 1.85; }
+      .service-detail { font-size: 0.9rem; }
+      .case-title { font-size: 1.15rem; }
+      .case-desc { font-size: 1rem; line-height: 1.85; }
+      .contact-option h4 { font-size: 1rem; }
+      .contact-option p { font-size: 0.95rem; line-height: 1.7; }
+      .hero-h1 { font-size: clamp(2.4rem, 9vw, 3.8rem); line-height: 1.1; margin-bottom: 20px; }
+      .hero-desc { font-size: 1.05rem; line-height: 1.85; margin-bottom: 28px; }
+      .hero-eyebrow { font-size: 0.8rem; margin-bottom: 18px; }
+      .principle-band blockquote { font-size: 1.2rem; line-height: 1.75; }
       .why-grid { grid-template-columns: 1fr; gap: 2px; }
       .why-item { padding: 26px 22px; }
       .why-number { font-size: 2.5rem; margin-bottom: 10px; }
