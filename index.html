@@ -606,16 +606,20 @@
 
     /* ─── SCROLL ANIMATIONS ─── */
     .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 1;
+      transform: none;
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .fade-up.visible {
+    .js-loaded .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .js-loaded .fade-up.visible {
       opacity: 1; transform: translateY(0);
     }
-    .fade-up:nth-child(2) { transition-delay: 0.1s; }
-    .fade-up:nth-child(3) { transition-delay: 0.2s; }
-    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .js-loaded .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .js-loaded .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .js-loaded .fade-up:nth-child(4) { transition-delay: 0.3s; }
 
     /* ─── RESPONSIVE ─── */
     .hero-mobile-photo {
@@ -665,6 +669,7 @@
       .contact-inner { grid-template-columns: 1fr; gap: 28px; }
       .contact-option { padding: 16px 18px; }
       footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px; }
+      .fade-up { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
@@ -1072,12 +1077,17 @@
     function handleWhitepaperRequest(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button');
+      const name = e.target.querySelectorAll('input')[0].value;
+      const company = e.target.querySelectorAll('input')[1].value;
+      const email = e.target.querySelector('input[type="email"]').value;
+      const subject = encodeURIComponent('白皮書申請');
+      const body = encodeURIComponent('姓名：' + name + '\n公司/職稱：' + company + '\nEmail：' + email);
       btn.textContent = '✓ 已收到，2個工作天內寄出';
       btn.style.background = '#2a5298';
       btn.style.color = '#ffffff';
-      // Here you would integrate with your email service
-      const email = e.target.querySelector('input[type="email"]').value;
-      window.location.href = `mailto:phyllis.strategy@gmail.com?subject=白皮書申請&body=Email: ${email}`;
+      setTimeout(() => {
+        window.open('mailto:phyllis.strategy@gmail.com?subject=' + subject + '&body=' + body);
+      }, 300);
     }
 
     function handleContact(e) {
