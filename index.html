@@ -633,22 +633,38 @@
     }
 
     @media (max-width: 1024px) {
-      nav { padding: 18px 32px; }
-      .hero { grid-template-columns: 1fr; padding: 120px 32px 64px; }
+      nav { padding: 14px 20px; }
+      .hero { grid-template-columns: 1fr; padding: 86px 24px 36px; }
       .hero::before { display: none; }
       .hero-left { padding-right: 0; }
       .hero-right { display: none; }
-      .hero-mobile-photo { display: block; }
-      section { padding: 72px 32px; }
-      .why-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
-      .case-item { grid-template-columns: 1fr; gap: 24px; }
+      .hero-mobile-photo { display: block; margin-bottom: 20px; }
+      .hero-eyebrow { margin-bottom: 14px; }
+      .hero-h1 { margin-bottom: 16px; }
+      .hero-desc { margin-bottom: 24px; font-size: 0.95rem; }
+      .principle-band { padding: 32px 24px; }
+      .principle-band blockquote { font-size: 1.1rem; }
+      section { padding: 44px 24px; }
+      .section-title { margin-bottom: 12px; }
+      .section-subtitle { margin-bottom: 28px; }
+      .why-grid { grid-template-columns: 1fr; gap: 2px; }
+      .why-item { padding: 26px 22px; }
+      .why-number { font-size: 2.5rem; margin-bottom: 10px; }
+      .distinction-table th, .distinction-table td { padding: 11px 12px; font-size: 0.8rem; }
+      .distinction-table th:first-child, .distinction-table td:first-child { display: none; }
+      .services-grid { grid-template-columns: 1fr; gap: 2px; }
+      .service-card { padding: 30px 22px; }
+      .service-num { font-size: 2.5rem; margin-bottom: 12px; }
+      .case-list { gap: 2px; }
+      .case-item { grid-template-columns: 1fr; gap: 10px; padding: 26px 22px; }
       .case-outcome { text-align: left; }
-      .about-inner { grid-template-columns: 1fr; gap: 48px; }
-      .whitepaper-inner { grid-template-columns: 1fr; gap: 40px; }
-      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
-      .distinction-table th, .distinction-table td { padding: 14px 16px; }
+      .about-inner { grid-template-columns: 1fr; gap: 28px; }
+      .career-item { padding: 18px 0; }
+      .whitepaper-section { padding: 44px 24px; }
+      .whitepaper-inner { grid-template-columns: 1fr; gap: 24px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 28px; }
+      .contact-option { padding: 16px 18px; }
+      footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px; }
     }
   </style>
 </head>
@@ -1070,4 +1086,4 @@
     function handleContact(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button');
-      btn.textContent = '✓ 已收到，近日與�
+      btn.textContent = '✓ 已收到，近日與�
