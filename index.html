@@ -460,65 +460,6 @@
       font-size: 0.82rem; color: var(--ink-muted);
     }
 
-    /* ─── WHITEPAPER CTA ─── */
-    .whitepaper-section {
-      background: var(--navy);
-      padding: 100px 60px;
-    }
-    .whitepaper-inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 80px;
-      align-items: center;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .whitepaper-label {
-      font-size: 0.7rem; font-weight: 500;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
-    }
-    .whitepaper-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 300; line-height: 1.3;
-      color: var(--white); margin-bottom: 16px;
-    }
-    .whitepaper-desc {
-      font-size: 0.9rem; line-height: 1.8;
-      color: rgba(255,255,255,0.55);
-    }
-    .whitepaper-form-wrap { min-width: 280px; }
-    .whitepaper-form {
-      display: flex; flex-direction: column; gap: 12px;
-    }
-    .whitepaper-form input {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--white);
-      padding: 14px 18px;
-      font-family: inherit; font-size: 0.88rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .whitepaper-form input::placeholder { color: rgba(255,255,255,0.3); }
-    .whitepaper-form input:focus { border-color: var(--gold); }
-    .whitepaper-form button {
-      background: var(--gold);
-      color: var(--navy);
-      border: none; cursor: pointer;
-      padding: 16px;
-      font-family: inherit; font-size: 0.82rem;
-      font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: background 0.3s;
-    }
-    .whitepaper-form button:hover { background: var(--gold-light); }
-    .whitepaper-note {
-      margin-top: 10px;
-      font-size: 0.72rem; color: rgba(255,255,255,0.3);
-    }
-
     /* ─── CONTACT ─── */
     .contact-section { background: var(--cream); }
     .contact-inner {
@@ -998,28 +939,6 @@
     </div>
   </section>
 
-  <!-- WHITEPAPER CTA -->
-  <div class="whitepaper-section">
-    <div class="whitepaper-inner">
-      <div>
-        <div class="whitepaper-label">免費白皮書</div>
-        <h3 class="whitepaper-title">《企業級AI自動化<br>決策產線建構白皮書》</h3>
-        <p class="whitepaper-desc">
-          涵蓋：架構診斷框架 · 四層決策系統設計 · 各產業導入優先序 · 常見架構失敗原因分析。<br>
-          適合：正在評估AI導入方向的企業決策層與策略主管。
-        </p>
-      </div>
-      <div class="whitepaper-form-wrap">
-        <form class="whitepaper-form" onsubmit="handleWhitepaperRequest(event)">
-          <input type="text" placeholder="姓名" required>
-          <input type="text" placeholder="公司 / 職稱">
-          <input type="email" placeholder="Email" required>
-          <button type="submit">預約索取白皮書</button>
-          <p class="whitepaper-note">收到申請後將於 2 個工作天內寄送，不會用於行銷用途。</p>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <!-- CONTACT -->
   <section id="contact" class="contact-section">
@@ -1094,22 +1013,27 @@
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
     // Build email via char codes - bypass CDN email scanning
-    (function() {
+    // Email via charCodes - Cloudflare safe
+    function injectEmail() {
       const c = String.fromCharCode;
       const u = c(112,104,121,108,108,105,115,46,115,116,114,97,116,101,103,121);
       const d = c(103,109,97,105,108,46,99,111,109);
       const e = u + c(64) + d;
       window._email = e;
-      const footer = document.getElementById('footer-email');
-      if (footer) {
+      const span = document.getElementById('footer-email');
+      if (span) {
         const a = document.createElement('a');
-        a.href = 'mailto:' + e;
+        a.href = 'mai' + 'lto:' + e;
         a.textContent = e;
-        a.style.color = 'rgba(255,255,255,0.5)';
-        a.style.textDecoration = 'none';
-        footer.replaceWith(a);
+        a.style.cssText = 'color:rgba(255,255,255,0.55);text-decoration:none;';
+        span.parentNode.replaceChild(a, span);
       }
-    })();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', injectEmail);
+    } else {
+      injectEmail();
+    }
 
     // Form handlers
     function handleWhitepaperRequest(e) {
@@ -1131,4 +1055,14 @@
     function handleContact(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button');
-      btn.textContent = '✓ 已收到，近日與�
+      btn.textContent = '✓ 已收到，近日與您聯繫';
+      btn.style.background = '#2a5298';
+      btn.style.color = '#ffffff';
+      const name = e.target.querySelector('input[type="text"]').value;
+      const email = e.target.querySelector('input[type="email"]').value;
+      const msg = e.target.querySelector('textarea').value;
+      if(window._email) window.location.href = 'mai' + 'lto:' + window._email + '?subject=架構顧問諮詢 - ' + name + '&body=' + encodeURIComponent(msg) + '%0A%0AEmail: ' + email;
+    }
+  </script>
+</body>
+</html>
