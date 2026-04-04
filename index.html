@@ -68,6 +68,7 @@
       padding: 120px 60px 80px;
       position: relative;
       overflow: hidden;
+      background: var(--cream);
     }
     .hero::before {
       content: '';
@@ -639,7 +640,7 @@
     @media (max-width: 1024px) {
       nav { padding: 14px 20px; }
       .hero { grid-template-columns: 1fr; padding: 86px 24px 36px; }
-      .hero::before { display: none; }
+      .hero::before { display: none !important; width: 0 !important; }
       .hero-left { padding-right: 0; }
       .hero-right { display: none; }
       .hero-mobile-photo { display: block; margin-bottom: 20px; }
@@ -649,8 +650,13 @@
       .principle-band { padding: 32px 24px; }
       .principle-band blockquote { font-size: 1.1rem; }
       section { padding: 44px 24px; }
-      .section-title { margin-bottom: 12px; }
-      .section-subtitle { margin-bottom: 28px; }
+      .section-title { margin-bottom: 12px; font-size: clamp(1.7rem, 6vw, 2.4rem); }
+      .section-subtitle { margin-bottom: 28px; font-size: 1rem; line-height: 1.75; }
+      body { font-size: 16px; }
+      .intro-text, .about-text p { font-size: 1rem !important; line-height: 1.9; }
+      .why-item p, .service-desc, .case-desc, .contact-option p { font-size: 0.95rem; line-height: 1.8; }
+      .hero-h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+      .hero-desc { font-size: 1rem; }
       .why-grid { grid-template-columns: 1fr; gap: 2px; }
       .why-item { padding: 26px 22px; }
       .why-number { font-size: 2.5rem; margin-bottom: 10px; }
@@ -1013,7 +1019,7 @@
           選擇最適合你目前狀況的方式開始。不確定從哪裡切入？直接寫信說說你的情況，我來建議。
         </p>
         <div class="contact-options">
-          <a href="#contact" class="contact-option">
+          <a href="#contact" class="contact-option" onclick="if(window._email){window.location.href='mailto:'+window._email+'?subject=診斷工作坊諮詢';return false;}">
             <span class="contact-option-icon">◈</span>
             <div>
               <h4>AI 決策架構診斷工作坊</h4>
@@ -1021,7 +1027,7 @@
               <p class="price">洽詢報價</p>
             </div>
           </a>
-          <a href="#contact" class="contact-option">
+          <a href="#contact" class="contact-option" onclick="if(window._email){window.location.href='mailto:'+window._email+'?subject=企業架構內訓諮詢';return false;}">
             <span class="contact-option-icon">◈</span>
             <div>
               <h4>企業 AI 架構思維內訓</h4>
@@ -1029,7 +1035,7 @@
               <p class="price">NT$ 20,000 起</p>
             </div>
           </a>
-          <a href="#contact" class="contact-option">
+          <a href="#contact" class="contact-option" onclick="if(window._email){window.location.href='mailto:'+window._email+'?subject=決策系統陪跑諮詢';return false;}">
             <span class="contact-option-icon">◈</span>
             <div>
               <h4>決策系統架構陪跑</h4>
@@ -1057,11 +1063,11 @@
       Phyllis Kuo &nbsp;·&nbsp; <span>AI 決策架構顧問</span>
     </div>
     <div class="footer-right">
-      © 2026 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="91e1f9e8fdfdf8e2bfe2e5e3f0e5f4f6e8d1f6fcf0f8fdbff2fefc">[email&#160;protected]</a>
+      © 2026 · <span id="footer-email"></span>
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Scroll animation
     document.body.classList.add('js-loaded');
 
@@ -1074,6 +1080,20 @@
     }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Inject email addresses via JS to avoid CDN obfuscation
+    (function() {
+      const e = 'phyllis.strategy' + '@' + 'gmail.com';
+      const els = document.querySelectorAll('[data-email]');
+      els.forEach(el => {
+        el.href = 'mailto:' + e;
+        el.textContent = e;
+      });
+      const footer = document.getElementById('footer-email');
+      if (footer) footer.textContent = e;
+      // Form handlers use this too
+      window._email = e;
+    })();
 
     // Form handlers
     function handleWhitepaperRequest(e) {
